@@ -36,9 +36,10 @@
                     echo "<td>" . $row["fullname"] . "</td>";
                     echo "<td>" . $row["username"] . "</td>";
                     echo "<td>                    
-                        <a href='update_admin.php'adminid=" . $row["adminid"] ."' class='btn-secondary'>Update Admin</a>
-                         <a href='delete_admin.php?adminid=" . $row["adminid"] . "' class='btn-danger'>Delete Admin</a>
-                        </td>";
+                    <a href='update_admin.php?adminid= ". $row["adminid"]. "' class='btn-secondary'>Update Admin</a>
+                    <a href='actions/delete_admin_action.php?adminid=" . $row["adminid"] . "' class='btn-danger'>Delete Admin</a>
+                    <a href='change_admin_password.php?adminid=" . $row["adminid"] . " ' class='btn-primary'> Change Password</a>
+                    </td>";
                     echo "</tr>";
                 }
             } else {
