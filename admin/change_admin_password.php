@@ -6,19 +6,33 @@ include('../settings/connection.php');?>
 
     <br> <br>   
     <?php
-    // Fetch the old password based on the selected admin id
-    $old_password = ""; // Initializing old password variable
-    if(isset($adminid)) {
-        $sql = "SELECT password FROM admin WHERE adminid = $adminid";
-        $res = mysqli_query($con, $sql);
-        if($res && mysqli_num_rows($res) == 1) {
+    // Collecting the ID of the selected admin
+    $adminid = $_GET['adminid'];
+
+    // SQL query to retrieve the hashed password of the selected admin
+    $sql = "SELECT password FROM admin WHERE adminid = $adminid";
+
+    // Query execution
+    $res = mysqli_query($con, $sql);
+
+    if ($res) {
+        $count = mysqli_num_rows($res);
+        if ($count == 1) {
             $row = mysqli_fetch_assoc($res);
-            $old_password = $row['password'];
+            // Get the hashed password of the admin
+            $hashed_password = $row['password'];
+        } else {
+            // Redirect if admin not found
+            header('location: http://localhost/food-ordering/admin/manage_admin.php');
+            exit(); // Terminate script execution after redirection
         }
+    } else {
+        // Redirect in case of SQL query error
+        header('location: http://localhost/food-ordering/admin/manage_admin.php');
+        exit(); // Terminate script execution after redirection
     }
-
-
     ?>
+
 
     
     <form action="actions/change_admin_password_action.php" id='passwordChangeForm' method="POST">
@@ -55,10 +69,7 @@ include('../settings/connection.php');?>
     </table>
         </div>
     </div>
-
    
-</script>
-
 
 <?php include('partials/footer.php'); 
 

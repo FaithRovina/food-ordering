@@ -1,87 +1,65 @@
-<?php   
-
-// Include database connection file
+<?php
 include('../../settings/connection.php');
 
-    // Function to check if the entered password matches the stored hash
-    function verifyPassword($password, $hashed_password) {
-        return password_verify($password, $hashed_password);
-    }
+// Check if adminid, old_password, new_password, and confirm_password are provided
+if(isset($_POST['adminid'], $_POST['old_password'], $_POST['new_password'], $_POST['confirm_password'])) {
+    $adminid = mysqli_real_escape_string($con, $_POST['adminid']); // Sanitize adminid
+    $old_password = $_POST['old_password'];
+    $new_password = $_POST['new_password'];
+    $confirm_password = $_POST['confirm_password'];
 
-    // Check if submit button is clicked
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-        // Check if adminid, old_password, new_password, and confirm_password are provided
-        if(isset($_POST['adminid'], $_POST['old_password'], $_POST['new_password'], $_POST['confirm_password'])) {
-            $adminid = $_POST['adminid'];
-            $old_password = $_POST['old_password'];
-            $new_password = $_POST['new_password'];
-            $confirm_password = $_POST['confirm_password'];
+    // Fetch hashed password from the database
+    $sql = "SELECT password FROM admin WHERE adminid = $adminid";
+    $res = mysqli_query($con, $sql);
 
-            // Fetch hashed password from the database
-            $sql = "SELECT password FROM admin WHERE adminid = $adminid";
-            $res = mysqli_query($con, $sql);
+    if($res) {
+        $count = mysqli_num_rows($res);
+        if($count == 1) {
+            $row = mysqli_fetch_assoc($res);
+            $hashed_password = $row['password'];
 
-            if($res) {
-                $count = mysqli_num_rows($res);
-                if($count == 1) {
-                    $row = mysqli_fetch_assoc($res);
-                    $hashed_password = $row['password'];
+            // Check if the old password matches the stored hash
+            if(password_verify($old_password, $hashed_password)) {
+                // Check if the new password and confirm password match
+                if($new_password === $confirm_password) {
+                    // Hash the new password securely
+                    $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
 
-                    // Verify if the old password matches the stored hash
-                    if(verifyPassword($old_password, $hashed_password)) {
-                        // Check if the new password and confirm password match
-                        if($new_password === $confirm_password) {
-                            // Hash the new password securely
-                            $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
+                    // Update the password in the database
+                    $update_sql = "UPDATE admin SET password = '$hashed_new_password' WHERE adminid = $adminid";
+                    $update_res = mysqli_query($con, $update_sql);
 
-                            // Update the password in the database
-                            $update_sql = "UPDATE admin SET password = '$hashed_new_password' WHERE adminid = $adminid";
-                            $update_res = mysqli_query($con, $update_sql);
-
-                            if($update_res) {
-                                // Password updated successfully
-                                $_SESSION['success'] = "Password updated successfully!";
-                                echo json_encode(array("success" => "Password updated successfully!"));
-                                exit();
-                            } else {
-                                // Failed to update password
-                                $_SESSION['error'] = "Failed to update password. Please try again.";
-                                echo json_encode(array("error" => "Failed to update password. Please try again."));
-                                exit();
-                            }
-                        } else {
-                            // New password and confirm password do not match
-                            $_SESSION['error'] = "New password and confirm password do not match.";
-                            echo json_encode(array("error" => "New password and confirm password do not match."));
-                            exit();
-                        }
+                    if($update_res) {
+                        // Password updated successfully, redirect to manage_admin.php
+                        header('Location: http://localhost/food-ordering/admin/manage_admin.php');
+                        exit();
                     } else {
-                        // Old password doesn't match
-                        $_SESSION['error'] = "Incorrect old password.";
-                        echo json_encode(array("error" => "Incorrect old password."));
+                        // Failed to update password, redirect to change password page
+                        header('Location: http://localhost/food-ordering/admin/change_admin_password.php?adminid=' . $adminid);
                         exit();
                     }
                 } else {
-                    // Admin not found
-                    $_SESSION['error'] = "Admin not found.";
-                    echo json_encode(array("error" => "Admin not found."));
+                    // New password and confirm password do not match, redirect to change password page
+                    header('Location: http://localhost/food-ordering/admin/change_admin_password.php?adminid=' . $adminid);
                     exit();
                 }
             } else {
-                // Error fetching admin details
-                $_SESSION['error'] = "Error fetching admin details.";
-                echo json_encode(array("error" => "Error fetching admin details."));
+                // Old password doesn't match, redirect to change password page
+                header('Location: http://localhost/food-ordering/admin/change_admin_password.php?adminid=' . $adminid);
                 exit();
             }
         } else {
-            // Required fields not provided
-            $_SESSION['error'] = "All fields are required.";
-            echo json_encode(array("error" => "All fields are required."));
+            // Admin not found, redirect to manage_admin.php
+            header('Location: http://localhost/food-ordering/admin/manage_admin.php');
             exit();
         }
     } else {
-        // Form not submitted
-        $_SESSION['error'] = "Form not submitted.";
-        echo json_encode(array("error" => "Form not submitted."));
+        // Error fetching admin details, redirect to manage_admin.php
+        header('Location: http://localhost/food-ordering/admin/manage_admin.php');
         exit();
     }
+} else {
+    // Required fields not provided, redirect to change password page
+    header('Location: http://localhost/food-ordering/admin/change_admin_password.php');
+    exit();
+}
