@@ -21,13 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $row['password'])) {
                 // Authentication successful
                 // Start session and store user information
-                $_SESSION['username'] = $username;
-                echo "<script>alert('Login successful.');</script>";
+                $_SESSION['username'] = $username;                
+                echo "<script>alert('Welcome, $username!');</script>";
                 echo "<script>window.location.href='http://localhost/food-ordering/admin/index.php';</script>";
                 exit();
             } else {
                 // Incorrect password
-                echo "<script>alert('Invalid password or Username.');</script>";
+                echo "<script>alert('Invalid password!');</script>";
                 echo "<script>window.location.href='http://localhost/food-ordering/admin/login/login_admin_view.php/';</script>";
                 exit();
             }

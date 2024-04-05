@@ -1,4 +1,7 @@
-<?php include('../settings/connection.php'); ?>
+<?php
+include('../settings/connection.php');
+include('login/login_check.php');
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +21,7 @@
                 <li><a href="manage_categories.php">Category</a></li>
                 <li><a href="manage_foods.php"> Food</a></li>
                 <li><a href="manage_orders.php">Order </a></li>
-                <li><a href ="login/logout_admin_view.php"><i class="fa fa-sign-out" aria-hidden="true"></i></li>
+                <li><a href ="login/logout_admin_view.php"> <i class="fa fa-sign-out" aria-hidden="true"></i> </a></li>
             </ul>
         </div>
     </div>
