@@ -7,16 +7,16 @@
          <br/> <br/>
 
          <!-- Button for Adding Admin -->
-        <a href="add_categories.php" class="btn-primary"> Add Admin </a>
+        <a href="add_categories.php" class="btn-primary"> Add Category </a>
          <br/> <br/> <br/>
 
          <table class="full-table">
             <tr>
-                <th> Category Include </th>
-                <th> Title </th>
-                <th> Image Name </th>
-                <th> Featured</th>
+                <th> Category Id </th>
+                <th> Title </th>               
                 <th> Active</th>
+                <th> Featured</th>
+                <th> Actions</th>
             </tr>
 
             <?php
@@ -24,7 +24,7 @@
             include_once '../settings/connection.php';
 
             // SQL query to fetch admin data
-            $sql = "SELECT catid ,title, active FROM category ";
+            $sql = "SELECT catid ,title, active, featured FROM category ";
             $result = $con->query($sql);
             
 
@@ -36,9 +36,10 @@
                     echo "<td>" . $row["catid"] . "</td>";
                     echo "<td>" . $row["title"] . "</td>";
                     echo "<td>" . $row["active"] . "</td>";
+                    echo "<td>" . $row["featured"] . "</td>";
                     echo "<td>                    
-                    <a href='update_category.php?adminid= ". $row["adminid"]. "' class='btn-secondary'>Update Admin</a>
-                    <a href='actions/delete_category_action.php?adminid=" . $row["adminid"] . "' class='btn-danger'>Delete Admin</a>                    
+                    <a href='update_category.php?catid= ". $row["catid"]. "' class='btn-secondary'>Update Category</a>
+                    <a href='actions/delete_category_action.php?catid=" . $row["catid"] . "' class='btn-danger'>Delete Category</a>                    
                     </td>";
                     echo "</tr>";
                 }
@@ -51,6 +52,6 @@
          </table>
         </div>
     </div>
-<?php include('partials/footer.php');
+
        
   

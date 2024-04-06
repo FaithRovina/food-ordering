@@ -71,5 +71,5 @@ include('../settings/connection.php');?>
     </div>
    
 
-<?php include('partials/footer.php'); 
+
 

@@ -31,4 +31,3 @@
         <div class="clearfix"> </div>
         </div>
     </div>
-<?php include('partials/footer.php');

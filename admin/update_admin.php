@@ -58,4 +58,3 @@ include('../settings/connection.php');
 
 
 
-<?php include ('partials/footer.php'); ?>

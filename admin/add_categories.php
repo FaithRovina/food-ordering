@@ -4,11 +4,11 @@
     <h1> Add Category </h1>
     <br /> <br />
 
-    <form action="actions/add_category_action.php" method="post">
+    <form action="http://localhost/food-ordering/admin/actions/add_category_action.php" method="post">
         <table class="table-add">            
             <tr>
                 <td><label for="category_title">Category Title:</label></td>
-                <td><input type="text" id="category_title" name="category_title" placeholder="Enter category title" required></td>
+                <td><input type="text" id="title" name="title" placeholder="Enter category title" required></td>
             </tr>
             <tr>
                 <td><label for="featured">Featured:</label></td>
@@ -40,4 +40,3 @@
     </div>
 </div>
 
-<?php include('partials/footer.php');?>
