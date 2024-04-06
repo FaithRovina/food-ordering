@@ -4,54 +4,53 @@
         <div class="wrapper">
          <h1> Manage Categories </h1> 
 
-        <!-- Button for Adding Admin -->
-        <a href="add_admin.php" class="btn-primary"> Add  Category </a>
+         <br/> <br/>
+
+         <!-- Button for Adding Admin -->
+        <a href="add_categories.php" class="btn-primary"> Add Admin </a>
          <br/> <br/> <br/>
 
          <table class="full-table">
             <tr>
-                <th> Admin ID </th>
-                <th> Name </th>
-                <th> Username </th>
-                <th> Actions </th>
+                <th> Category Include </th>
+                <th> Title </th>
+                <th> Image Name </th>
+                <th> Featured</th>
+                <th> Active</th>
             </tr>
 
-            <tr>
-                <td> 01832025 </td>
-                <td> Faith Rovina </td>
-                <td> faith_rovina </td>
-                <td> 
-                <a href="#" class="btn-secondary"> Update  Category </a>
-                <a href="#" class="btn-danger"> Delete Category </a>                    
-                    
-                </td>
-                
-            </tr>
+            <?php
+            // Include database connection
+            include_once '../settings/connection.php';
 
-            <tr>
-                <td> 21832024 </td>
-                <td> Ngala Rovina </td>
-                <td> ngala_rovina </td>
-                <td> 
-                <a href="#" class="btn-secondary"> Update Category </a>
-                <a href="#" class="btn-danger"> Delete  Category </a>
-                </td>
-                
-            </tr>
+            // SQL query to fetch admin data
+            $sql = "SELECT catid ,title, active FROM category ";
+            $result = $con->query($sql);
+            
 
-            <tr>
-                <td> 01932025 </td>
-                <td> Faith Ngala </td>
-                <td> faith_ngala </td>
-                <td> 
-                <a href="#" class="btn-secondary"> Update  Category </a> 
-                <a href="#" class="btn-danger"> Delete  Category </a>
-                </td>
-                
-            </tr>
+            // Check if there are any records in the database
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["catid"] . "</td>";
+                    echo "<td>" . $row["title"] . "</td>";
+                    echo "<td>" . $row["active"] . "</td>";
+                    echo "<td>                    
+                    <a href='update_category.php?adminid= ". $row["adminid"]. "' class='btn-secondary'>Update Admin</a>
+                    <a href='actions/delete_category_action.php?adminid=" . $row["adminid"] . "' class='btn-danger'>Delete Admin</a>                    
+                    </td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='4'>No categories found</td></tr>";
+            }
+            ?>
+
 
          </table>
-
         </div>
     </div>
 <?php include('partials/footer.php');
+       
+  

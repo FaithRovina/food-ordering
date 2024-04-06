@@ -38,10 +38,8 @@
         alert('Please enter username and password.');
         return false;
       }
-      
-      // Additional validation can be added here if needed
-
-      return true; // Form submission allowed if all validations pass
+    
+      return true; 
     }
   </script>
 </body>
