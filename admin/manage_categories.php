@@ -1,19 +1,20 @@
 <?php include('partials/menu.php'); ?>
 
-    <div class="main-content">
-        <div class="wrapper">
-         <h1> Manage Categories </h1> 
+<div class="main-content">
+    <div class="wrapper">
+        <h1> Manage Categories </h1> 
 
-         <br/> <br/>
+        <br/> <br/>
 
-         <!-- Button for Adding Admin -->
+        <!-- Button for Adding Admin -->
         <a href="add_categories.php" class="btn-primary"> Add Category </a>
-         <br/> <br/> <br/>
+        <br/> <br/> <br/>
 
-         <table class="full-table">
+        <table class="full-table">
             <tr>
                 <th> Category Id </th>
-                <th> Title </th>               
+                <th> Title </th> 
+                <th> Category Image </th>               
                 <th> Active</th>
                 <th> Featured</th>
                 <th> Actions</th>
@@ -23,10 +24,9 @@
             // Include database connection
             include_once '../settings/connection.php';
 
-            // SQL query to fetch admin data
-            $sql = "SELECT catid ,title, active, featured FROM category ";
+            // SQL query to fetch category data
+            $sql = "SELECT catid ,title, catimage, active, featured FROM category ";
             $result = $con->query($sql);
-            
 
             // Check if there are any records in the database
             if ($result->num_rows > 0) {
@@ -35,6 +35,16 @@
                     echo "<tr>";
                     echo "<td>" . $row["catid"] . "</td>";
                     echo "<td>" . $row["title"] . "</td>";
+                    
+                    // Check if there is an image attached
+                    if (!empty($row["catimage"])) {
+                        // Display the image using an <img> tag
+                        echo "<td><img src='../images/" . $row["catimage"] . "' alt='" . $row["title"] . "' style='width:100px;height:auto;'></td>";
+                    } else {
+                        // Display "Image not added" if no image is attached
+                        echo "<td style='color: red;'>Image not added</td>";
+                    }
+                    
                     echo "<td>" . $row["active"] . "</td>";
                     echo "<td>" . $row["featured"] . "</td>";
                     echo "<td>                    
@@ -48,10 +58,6 @@
             }
             ?>
 
-
-         </table>
-        </div>
+        </table>
     </div>
-
-       
-  
+</div>

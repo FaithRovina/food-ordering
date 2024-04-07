@@ -1,55 +1,65 @@
 <?php include('partials/menu.php'); ?>
 
-    <div class="main-content">
-        <div class="wrapper">
-         <h1> Manage Foods </h1> 
+<div class="main-content">
+    <div class="wrapper">
+        <h1> Manage Foods </h1> 
 
-         <!-- Button for Adding Admin -->
+        <!-- Button for Adding Admin -->
         <a href="#" class="btn-primary"> Add Food </a>
-         <br/> <br/> <br/>
+        <br/> <br/> <br/>
 
-         <table class="full-table">
+        <table class="full-table">
             <tr>
-                <th> Admin ID </th>
+                <th> Food ID </th>
                 <th> Name </th>
-                <th> Username </th>
+                <th> Description </th>
+                <th> Price </th>
+                <th> Featured </th>
+                <th> Active </th>
+                <th> Category ID </th>
+                <th> Image </th>
                 <th> Actions </th>
             </tr>
 
-            <tr>
-                <td> 01832025 </td>
-                <td> Faith Rovina </td>
-                <td> faith_rovina </td>
-                <td> 
-                <a href="#" class="btn-secondary"> Update Food </a>
-                <a href="#" class="btn-danger"> Update Food </a>                    
-                    
-                </td>
-                
-            </tr>
+            <?php
+            // Include database connection
+            include_once '../settings/connection.php';
 
-            <tr>
-                <td> 21832024 </td>
-                <td> Ngala Rovina </td>
-                <td> ngala_rovina </td>
-                <td> 
-                <a href="#" class="btn-secondary"> Update Food </a>
-                <a href="#" class="btn-danger"> Update Food </a>
-                </td>
-                
-            </tr>
+            // SQL query to fetch food data
+            $sql = "SELECT * FROM food";
+            $result = $con->query($sql);
 
-            <tr>
-                <td> 01932025 </td>
-                <td> Faith Ngala </td>
-                <td> faith_ngala </td>
-                <td> 
-                <a href="#" class="btn-secondary"> Update Food </a> 
-                <a href="#" class="btn-danger"> Update Food </a>
-                </td>
-                
-            </tr>
+            // Check if there are any records in the database
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["fid"] . "</td>";
+                    echo "<td>" . $row["fname"] . "</td>";
+                    echo "<td>" . $row["description"] . "</td>";
+                    echo "<td>" . $row["price"] . "</td>";
+                    echo "<td>" . $row["featured"] . "</td>";
+                    echo "<td>" . $row["active"] . "</td>";
+                    echo "<td>" . $row["category_id"] . "</td>";
+                    // Check if there is an image attached
+                    if (!empty($row["food_image"])) {
+                        // Display the image using an <img> tag
+                        echo "<td><img src='../images/" . $row["food_image"] . "' alt='" . $row["fname"] . "' style='width:100px;height:auto;'></td>";
+                    } else {
+                        // Display "Image not added" if no image is attached
+                        echo "<td style='color: red;'>Image not added</td>";
+                    }
+                    echo "<td>                    
+                    <a href='#' class='btn-secondary'> Update Food </a>
+                    <a href='#' class='btn-danger'> Delete Food </a>                    
+                    </td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='9'>No foods found</td></tr>";
+            }
+            ?>
 
-         </table>
-        </div>
+        </table>
     </div>
+</div>

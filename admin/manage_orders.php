@@ -10,9 +10,9 @@
 
          <table class="full-table">
             <tr>
-                <th> Admin ID </th>
-                <th> Name </th>
-                <th> Username </th>
+                <th> Order ID </th>
+                <th> Food ID </th>
+                <th> Quantity </th>
                 <th> Actions </th>
             </tr>
 

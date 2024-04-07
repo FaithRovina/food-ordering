@@ -1,6 +1,5 @@
 <?php 
 include ('partials/menu.php');
-
 include('../settings/connection.php');
 ?>
 <div class="main-content">
@@ -8,12 +7,12 @@ include('../settings/connection.php');
     <h1> Update Category </h1>
     <br> <br>
     <?php
-        //collecting the id of the selected category:
+        // Collecting the id of the selected category:
         $catid = $_GET['catid'];
         
         $sql = "SELECT * FROM category WHERE catid = $catid";
 
-        //query execution:
+        // Query execution:
         $res = mysqli_query($con, $sql);
 
         if($res == true){
@@ -29,11 +28,15 @@ include('../settings/connection.php');
         }
     ?>
 
-    <form action="actions/update_category_action.php" method="post">    
+    <form action="actions/update_category_action.php" method="post" enctype="multipart/form-data">    
         <table class="table-add">
             <tr>
                 <td><label for="title">Title:</label></td>
                 <td><input type="text" id="title" name="title" value="<?php echo $title;?>"></td>
+            </tr>
+            <tr>
+                <td><label for="image">Category Image:</label></td>
+                <td><input type="file" id="image" name="image" accept="image/*"></td>
             </tr>
             <tr>
                 <td><label for="featured">Featured:</label></td>

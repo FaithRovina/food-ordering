@@ -1,15 +1,15 @@
 <?php
 include_once('../../settings/connection.php');
 
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
-    $title = $_POST['title'];
-    // Check if featured is set, if not set default to "no"
-    $featured = isset($_POST['featured']) ? $_POST['featured'] : 'no';
-    // Check if active is set, if not set default to "no"
-    $active = isset($_POST['active']) ? $_POST['active'] : 'no';
-    
+    $fname = $_POST['fname'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $featured = $_POST['featured'];
+    $active = $_POST['active'];
+    $category_id = $_POST['category_id'];
+
     // File upload handling
     if(isset($_FILES['image'])) {
         $file_name = $_FILES['image']['name'];
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Set the upload directory path
         $upload_dir = '../images';
 
-        // Check if the file already exists
+        // If file already exists, rename it with a unique name
         $i = 0;
         $original_name = $file_name;
         while (file_exists($upload_dir . $file_name)) {
@@ -31,13 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Move uploaded file to desired location
         $destination = $upload_dir . $file_name;
         if(move_uploaded_file($file_tmp, $destination)) {
-            // File uploaded successfully, proceed to insert data into the database
-            $sql = "INSERT INTO category (title, catimage, featured, active) VALUES ('$title', '$file_name', '$featured', '$active')";
-            
+            // Insert food details into the food table
+            $sql = "INSERT INTO food (fname, description, price, featured, active, category_id, food_image) 
+                    VALUES ('$fname', '$description', '$price', '$featured', '$active', '$category_id', '$file_name')";
+
             // Execute the query
             if (mysqli_query($con, $sql)) {
-                // Category added successfully
-                header("Location:../manage_categories.php");
+                // Food added successfully
+                header("Location:http://localhost/food-ordering/admin/manage_foods.php");
                 exit();
             } else {
                 // Error handling if insertion fails
@@ -45,12 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } else {
             echo "Error moving uploaded file.";
+            exit();
         }
     } else {
         echo "Image file not found.";
+        exit();
     }
-    
-    // Close the database connection
-    mysqli_close($con);
+} else {
+    echo "Invalid request method.";
+    exit();
 }
 ?>
