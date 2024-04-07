@@ -4,8 +4,8 @@
     <div class="wrapper">
         <h1> Manage Foods </h1> 
 
-        <!-- Button for Adding Admin -->
-        <a href="#" class="btn-primary"> Add Food </a>
+        <!-- Button for Adding Food -->
+        <a href="add_food.php" class="btn-primary"> Add Food </a>
         <br/> <br/> <br/>
 
         <table class="full-table">
@@ -50,8 +50,8 @@
                         echo "<td style='color: red;'>Image not added</td>";
                     }
                     echo "<td>                    
-                    <a href='#' class='btn-secondary'> Update Food </a>
-                    <a href='#' class='btn-danger'> Delete Food </a>                    
+                    <a href='http://localhost/food-ordering/admin/update_food.php.?fid= ". $row["fid"]. " ' class='btn-secondary'> Update Food </a>
+                    <a  href='http://localhost/food-ordering/admin/actions/delete_food_action.php.?fid= ". $row["fid"]. " 'class='btn-danger'> Delete Food </a>                    
                     </td>";
                     echo "</tr>";
                 }

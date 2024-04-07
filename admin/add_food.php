@@ -32,10 +32,34 @@
                         <label><input type="radio" name="active" value="no"> No</label>
                     </td>
                 </tr>
+
                 <tr>
-                    <td><label for="category_id">Category ID:</label></td>
-                    <td><input type="number" id="category_id" name="category_id" min="1" placeholder="Enter category ID" required></td>
-                </tr>
+                <td><label for="category">Category:</label></td>
+                <td>
+                    <select id="category" name="category" required>
+                        <option value="">Select Category</option>
+                        <?php
+                            // Include database connection
+                            include_once('../../../settings/connection.php');
+
+                            // Retrieve categories from the database and populate the dropdown
+                            $sql = "SELECT * FROM category";
+                            $result = mysqli_query($con, $sql);
+
+                            // Check if categories are fetched
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<option value='" . $row['title'] . "'>" . $row['title'] . "</option>";
+                                }
+                            } else {
+                                echo "<option value=''>No categories found</option>";
+                            }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+
+
                 <tr>
                     <td><label for="image">Food Image:</label></td>
                     <td><input type="file" id="image" name="image" accept="image/*" required></td>
