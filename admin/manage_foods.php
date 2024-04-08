@@ -10,15 +10,16 @@
 
         <table class="full-table">
             <tr>
-                <th> Food ID </th>
-                <th> Name </th>
-                <th> Description </th>
-                <th> Price </th>
-                <th> Featured </th>
-                <th> Active </th>
-                <th> Category ID </th>
-                <th> Image </th>
-                <th> Actions </th>
+                
+            <th style="width: 5%;"> Food ID </th>
+                <th style="width: 15%;"> Name </th>
+                <th style="width: 25%;"> Description </th>
+                <th style="width: 10%;"> Price </th>
+                <th style="width: 5%;"> Featured </th>
+                <th style="width: 5%;"> Active </th>
+                <th style="width: 5%;"> Cat. ID </th>
+                <th style="width: 15%;"> Image </th>
+                <th style="width: 15%;"> Actions </th>
             </tr>
 
             <?php
