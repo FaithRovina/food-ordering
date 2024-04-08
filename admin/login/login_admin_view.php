@@ -4,14 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Form - FarmtoFork Kenya </title> 
-  <link rel="stylesheet" href="../../../css/login.css">
+  <link href="../../../css/login.css"  rel="stylesheet">
+  <!--<link rel="stylesheet" href="../../../css/login.css">-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 </head>
 <body>
   <div class="container">
     <div class="wrapper">
       <div class="title"><span>Login Form</span></div>
-      <form action="../../actions/login_admin_action.php" method="POST" onsubmit="return validateForm()">
+      <form action="http://localhost/food-ordering/admin/actions/login_admin_action.php" method="POST" onsubmit="return validateForm()">
         <div class="row">
           <i class="fas fa-user"></i>
           <input type="text" name="username" placeholder="Username" required>
