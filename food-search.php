@@ -52,4 +52,15 @@ if(isset($_POST['submit'])) {
 }
 ?>
 
-<?php include('partials\footer.php') ?>
+    <div class="clearfix"></div>
+
+    </div>
+
+    
+    </section>
+
+</body>
+</html>
+<?php
+include('partials\footer.php');
+?>
