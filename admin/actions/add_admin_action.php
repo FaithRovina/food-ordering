@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the statement
     if ($stmt->execute()) {
-        header("Location: http://localhost/food-ordering/");
+        header("Location: http://localhost/food-ordering/admin/login/login_view.php");
         exit;
     } else {
         echo "Error: " . $stmt->error;

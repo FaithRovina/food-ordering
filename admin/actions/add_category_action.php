@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $file_error = $_FILES['image']['error'];
         
         // Set the upload directory path
-        $upload_dir = '../images';
+        $upload_dir = '../../food-ordering/uploads/';
 
         // Check if the file already exists
         $i = 0;
