@@ -1,5 +1,6 @@
 <?php
 include('partials\user_menu.php');
+include('settings\connection.php');
 ?>
    <!-- fOOD sEARCH Section Starts Here -->
    <section class="food-search text-center">
@@ -12,123 +13,46 @@ include('partials\user_menu.php');
 
         </div>
     </section>
+<!-- Food Menu-->
+<section class="food-menu">
+    <div class="container">
+        <h2 class="text-center">Food Menu</h2>
 
-    <!-- fOOD MEnu Section Starts Here -->
-    <section class="food-menu">
-        <div class="container">
-            <h2 class="text-center">Food Menu</h2>
+        <?php
+        // Query to fetch food name, description, price, and image from the food table
+        $sql = "SELECT fname, description, price, food_image FROM food WHERE active='yes' LIMIT 6";
+        $result2 = mysqli_query($con, $sql);
 
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                </div>
+        // Check if the query was successful
+        if ($result2) {
+            // Loop through the fetched food items and display them
+            while ($row = mysqli_fetch_assoc($result2)) {
+                echo '<div class="food-menu-box">';
+                echo '<div class="food-menu-img">';
+                echo '<img src="images/' . $row['food_image'] . '" alt="' . $row['fname'] . '" class="img-responsive img-curve">';
+                echo '</div>';
+                echo '<div class="food-menu-desc">';
+                echo '<h4>' . $row['fname'] . '</h4>';
+                echo '<p class="food-price">$' . $row['price'] . '</p>';
+                echo '<p class="food-detail">' . $row['description'] . '</p>';
+                echo '<br>';
+                echo '<a href="user/order.php" class="btn btn-primary">Order Now</a>';
+                echo '</div>';
+                echo '</div>';
+            }
+        } else {
+            echo "Error fetching food items: " . mysqli_error($con);
+        }
+        ?>
 
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce, Chicken, and organice vegetables.
-                    </p>
-                    <br>
+        <div class="clearfix"></div>
 
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-burger.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Smoky Burger</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce, Chicken, and organice vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-burger.jpg" alt="Chicke Hawain Burger" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Nice Burger</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce, Chicken, and organice vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce, Chicken, and organice vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce, Chicken, and organice vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-momo.jpg" alt="Chicke Hawain Momo" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Chicken Steam Momo</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce, Chicken, and organice vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-
-            <div class="clearfix"></div>
-
-            
-
-        </div>
-
-    </section>
-    <!-- fOOD Menu Section Ends Here -->
+    </div>
+    
+    <p class="text-center">
+        <a href="#">See All Foods</a>
+    </p>
+</section>
    
 </body>
 </html>
