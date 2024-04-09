@@ -20,7 +20,7 @@ if(isset($_POST['submit'])) {
     $search = mysqli_real_escape_string($con, $_POST['search']);
 
     // Query to search for the keyword in the food table
-    $sql = "SELECT fname, description, price, food_image FROM food WHERE active='yes' AND (fname LIKE '%$search%' OR description LIKE '%$search%')";
+    $sql = "SELECT fname, description, price,fid, food_image FROM food WHERE active='yes' AND (fname LIKE '%$search%' OR description LIKE '%$search%')";
     $result = mysqli_query($con, $sql);
 
     // Check if any results are found
@@ -39,7 +39,7 @@ if(isset($_POST['submit'])) {
             echo '<p class="food-price">$' . $row['price'] . '</p>';
             echo '<p class="food-detail">' . $row['description'] . '</p>';
             echo '<br>';
-            echo '<a href="user/order.php" class="btn btn-primary">Order Now</a>';
+            echo '<a href="order.php?fid=' . $row['fid'] . '" class="btn btn-primary">Order Now</a>';
             echo '</div>';
             echo '</div>';
         }

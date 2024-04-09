@@ -16,7 +16,7 @@ include('settings\connection.php');
             if ($result) {
             // Loop through the fetched categories and display them
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<a href="user/category-foods.php">';
+                echo '<a href="category-foods.php">';
                 echo '<div class="box-3 float-container">';
                 echo '<img src="images/' . $row['catimage'] . '" alt="' . $row['title'] . '" class="img-responsive img-curve">';
                 echo '<h3 class="float-text text-white">' . $row['title'] . '</h3>';
@@ -41,7 +41,7 @@ include('settings\connection.php');
 
         <?php
         // Query to fetch food name, description, price, and image from the food table
-        $sql = "SELECT fname, description, price, food_image FROM food WHERE active='yes' LIMIT 6";
+        $sql = "SELECT fname, description, price,fid, food_image FROM food WHERE active='yes' LIMIT 6";
         $result2 = mysqli_query($con, $sql);
 
         // Check if the query was successful
@@ -57,7 +57,7 @@ include('settings\connection.php');
                 echo '<p class="food-price">$' . $row['price'] . '</p>';
                 echo '<p class="food-detail">' . $row['description'] . '</p>';
                 echo '<br>';
-                echo '<a href="user/order.php" class="btn btn-primary">Order Now</a>';
+                echo '<a href="order.php?fid=' . $row['fid'] . '" class="btn btn-primary">Order Now</a>';
                 echo '</div>';
                 echo '</div>';
             }

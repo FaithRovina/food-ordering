@@ -23,7 +23,7 @@ if (isset($_GET['catid'])) {
         echo '</section>';
 
         // Query to get the foods available in the selected category
-        $sql_foods = "SELECT fname, description, price, food_image FROM food WHERE active='yes' AND category_id = $catid";
+        $sql_foods = "SELECT fname, description,fid, price, food_image FROM food WHERE active='yes' AND category_id = $catid";
         $result_foods = mysqli_query($con, $sql_foods);
 
         // Check if any results are found
@@ -42,7 +42,8 @@ if (isset($_GET['catid'])) {
                 echo '<p class="food-price">$' . $row_food['price'] . '</p>';
                 echo '<p class="food-detail">' . $row_food['description'] . '</p>';
                 echo '<br>';
-                echo '<a href="user/order.php" class="btn btn-primary">Order Now</a>';
+                echo '<a href="order.php?fid=' . $row_food['fid'] . '" class="btn btn-primary">Order Now</a>';
+
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';

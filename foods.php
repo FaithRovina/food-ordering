@@ -36,7 +36,7 @@ include('settings\connection.php');
                 echo '<p class="food-price">$' . $row['price'] . '</p>';
                 echo '<p class="food-detail">' . $row['description'] . '</p>';
                 echo '<br>';
-                echo '<a href="user/order.php" class="btn btn-primary">Order Now</a>';
+                echo '<a href="order.php?fid=' . $row['fid'] . '" class="btn btn-primary">Order Now</a>';
                 echo '</div>';
                 echo '</div>';
             }

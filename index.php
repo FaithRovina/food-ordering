@@ -21,7 +21,7 @@ include('settings/connection.php');
 
         <?php
         // Query to fetch categories from the category table
-        $sql = "SELECT catid, title, catimage FROM category WHERE active='yes' AND featured ='yes' LIMIT 3";
+        $sql = "SELECT catid, title, catimage FROM category WHERE featured ='yes' LIMIT 6";
         $result = mysqli_query($con, $sql);
 
         // Check if the query was successful
