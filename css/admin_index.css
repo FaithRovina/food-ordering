@@ -1,59 +1,50 @@
-*{
+/* Reset CSS */
+* {
     margin: 0;
     padding: 0;
-    font-family:Arial, Helvetica, sans-serif ;
-       
+    box-sizing: border-box;
 }
 
-.wrapper{    
+/* Main wrapper */
+.wrapper {
     padding: 1%;
     width: 80%;
     margin: 0 auto;
-
 }
 
-.text-center{
+/* Center text */
+.text-center {
     text-align: center;
 }
-.clearfix{
-    float: none;
-    clear:both;
+
+/* Clearfix */
+.clearfix {
+    clear: both;
 }
-.full-table{
-    width:100%;
-}
-.table-add {
+
+/* Full-width table */
+.full-table {
     width: 100%;
+    border-collapse: collapse;
 }
 
-.table-add th,
-.table-add td {
-    padding: 8px;
-}
-
-.table-add th {
-    width: 30%; /* Adjust as needed */
-    text-align: right;
-}
-
-.table-add td input[type="text"],
-.table-add td input[type="password"] {
-    width: calc(70% - 16px); /* Adjust as needed */
-    padding: 8px;
-}
-
-
-table tr th{
-    padding: 1%;
+/* Table header and cell styles */
+.full-table th {
+    padding: 12px; /* Increase padding for better spacing */
     text-align: left;
     border-bottom: 1px solid black;
 }
 
-table tr td{
-    padding: 1%;
+.full-table td {
+    padding: 10px; /* Increase padding for better spacing */
+    text-align: left;
+    border-bottom: 1px solid black;
 }
 
-.btn-primary {
+/* Button styles */
+.btn-primary,
+.btn-secondary,
+.btn-danger {
     background-color: #007bff;
     border: none;
     color: white;
@@ -67,109 +58,71 @@ table tr td{
     border-radius: 8px;
     outline: none;
 }
+
 .btn-primary:hover {
     background-color: #3742fa;
 }
-.btn-primary:active {
-    background-color: #3742fa;
-    transform: translateY(1px);
-}
-.btn-primary:focus {
-    outline: none;
-}
-.btn-secondary {
-    background-color: #2ed573;
-    border: none;
-    color: white;
-    padding: 12px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    outline: none;
-}
-.btn-secondary:hover {
-    background-color: #2ed573;
-}
-.btn-secondary:active {
-    background-color: #2ed573;
-    transform: translateY(1px);
-}
-.btn-secondary:focus {
-    outline: none;
-}
 
-.btn-danger {
-    background-color: #2ed573;
-    border: none;
-    color: white;
-    padding: 12px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    outline: none;
-}
+.btn-secondary,
 .btn-danger:hover {
     background-color: #2ed573;
 }
+
+.btn-primary:active,
+.btn-secondary:active,
 .btn-danger:active {
-    background-color: #2ed573;
+    background-color: #3742fa;
     transform: translateY(1px);
 }
+
+.btn-primary:focus,
+.btn-secondary:focus,
 .btn-danger:focus {
     outline: none;
 }
 
-
-
-
-/** styling menu*/
-.menu{
+/* Styling for menu */
+.menu {
     text-align: center;
-    border-bottom:1px solid grey ;
+    border-bottom: 1px solid grey;
 }
-.menu ul{
+
+.menu ul {
     list-style-type: none;
 }
-.menu ul li{
+
+.menu ul li {
     display: inline;
-    padding:1.5%;
+    padding: 1.5%;
 }
 
-.menu ul li a{
+.menu ul li a {
     text-decoration: none;
     font-weight: bold;
-    color:#ff6b81 ;
-
-}
-.menu ul li a:hover{
-    color:#ff4757;
-
+    color: #ff6b81;
 }
 
-/**Main content*/
-.main-content{
-    padding:2% 0;
+.menu ul li a:hover {
+    color: #ff4757;
+}
+
+/* Main content */
+.main-content {
+    padding: 2% 0;
     background-color: #f1f2f6;
-    
 }
 
-.col-4{
+/* Column */
+.col-4 {
     width: 18%;
     background-color: white;
     margin: 0.9%;
     padding: 2.5%;
-    float:left
+    float: left;
 }
-/** styling for footer*/
-.footer{
+
+/* Footer */
+.footer {
     color: white;
     background-color: #ff4757;
 }

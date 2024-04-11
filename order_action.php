@@ -12,8 +12,8 @@ if(isset($_POST['submit'])) {
     $fid = mysqli_real_escape_string($con, $_POST['fid']);
 
     // Insert into customer table
-    $customerInsertQuery = "INSERT INTO customer (customerName, phoneno, email, delivery_address) 
-                            VALUES ('$customerName', '$phoneno', '$email', '$address')";
+    $customerInsertQuery = "INSERT INTO customer (customerName, phoneno, email) 
+                            VALUES ('$customerName', '$phoneno', '$email')";
     if(mysqli_query($con, $customerInsertQuery)) {
         // Get the last automatically generated ID
         $customerId = mysqli_insert_id($con);
@@ -31,11 +31,9 @@ if(isset($_POST['submit'])) {
         $orderDate = date("Y-m-d");
 
         // Insert into orders table
-        $orderInsertQuery = "INSERT INTO orders (food_id, customer_id, quantity, total, orderDate) 
-                             VALUES ($fid, $customerId, $qty, $totalPrice, '$orderDate')";
-        if(mysqli_query($con, $orderInsertQuery)) {
-            // Process the order
-            // For demonstration purposes, let's just display a confirmation message
+        $orderInsertQuery = "INSERT INTO orders (food_id, customer_id, quantity, total, orderDate, delivery_address) 
+                             VALUES ($fid, $customerId, $qty, $totalPrice, '$orderDate','$address')";
+        if(mysqli_query($con, $orderInsertQuery)) {            
             echo "<h2>Order Placed</h2>";
             echo "<p>Your order has been placed successfully with the following details:</p>";
             echo "<p>Food Name: $fid</p>";

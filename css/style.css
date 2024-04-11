@@ -1,13 +1,7 @@
-/* 
-    Author: Vijay Thapa;
-    Theme: Restaurant Food Order;
-    version: 1.0;
-*/
-
-/* CSS for All */
+/* CSS for All admin pages apart from index */
 *{
-    margin: 0 0;
-    padding: 0 0;
+    margin: 0;
+    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 .container{
@@ -198,60 +192,26 @@ fieldset{
     font-weight: bold;
 }
 
+/* Adjustments for Full Table */
+.full-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; 
+}
 
+.full-table th,
+.full-table td {
+    padding: 10px; 
+    text-align: left;
+    word-wrap: break-word; 
+    border: none; 
+}
 
-/* CSS for Mobile Size or Smaller Screen */
+.btn-container {
+    white-space: nowrap; 
+}
 
-@media only screen and (max-width:768px){
-    .logo{
-        width: 80%;
-        float: none;
-        margin: 1% auto;
-    }
-
-    .menu ul{
-        text-align: center;
-    }
-
-    .food-search input[type="search"]{
-        width: 90%;
-        padding: 2%;
-        margin-bottom: 3%;
-    }
-
-    .btn{
-        width: 91%;
-        padding: 2%;
-    }
-
-    .food-search{
-        padding: 10% 0;
-    }
-
-    .categories{
-        padding: 20% 0;
-    }
-    h2{
-        margin-bottom: 10%;
-    }
-    .box-3{
-        width: 100%;
-        margin: 4% auto;
-    }
-
-    .food-menu{
-        padding: 20% 0;
-    }
-
-    .food-menu-box{
-        width: 90%;
-        padding: 5%;
-        margin-bottom: 5%;
-    }
-    .social{
-        padding: 5% 0;
-    }
-    .order{
-        width: 100%;
-    }
+.btn-container a {
+    display: inline;
+    margin-right: 8px; 
 }
