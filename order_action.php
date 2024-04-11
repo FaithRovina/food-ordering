@@ -1,55 +1,56 @@
 <?php
 include ('settings/connection.php');
 
-
-
 // Check if the form is submitted
 if(isset($_POST['submit'])) {
     // Retrieve form data and sanitize inputs
     $qty = mysqli_real_escape_string($con, $_POST['qty']);
-    $fullName = mysqli_real_escape_string($con, $_POST['full-name']);
-    $contact = mysqli_real_escape_string($con, $_POST['contact']);
+    $customerName = mysqli_real_escape_string($con, $_POST['customerName']);
+    $phoneno = mysqli_real_escape_string($con, $_POST['phoneno']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $address = mysqli_real_escape_string($con, $_POST['address']);
-    
-    // Validate form data
-    $errors = [];
+    $fid = mysqli_real_escape_string($con, $_POST['fid']);
 
-    // Validate full name
-    if(empty($fullName)) {
-        $errors[] = "Full name is required.";
-    }
+    // Insert into customer table
+    $customerInsertQuery = "INSERT INTO customer (customerName, phoneno, email, delivery_address) 
+                            VALUES ('$customerName', '$phoneno', '$email', '$address')";
+    if(mysqli_query($con, $customerInsertQuery)) {
+        // Get the last automatically generated ID
+        $customerId = mysqli_insert_id($con);
 
-    // Validate phone number
-    if(strlen($contact) < 10 || strlen($contact) > 20) {
-        $errors[] = "Phone number should be between 10 and 20 characters.";
-    }
+        // Query to fetch the price of the selected food
+        $priceQuery = "SELECT price FROM food WHERE fid = $fid";
+        $priceResult = mysqli_query($con, $priceQuery);
+        $priceData = mysqli_fetch_assoc($priceResult);
+        $price = $priceData['price'];
 
-    // Validate email address
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Invalid email address.";
-    }
+        // Calculate total price
+        $totalPrice = $qty * $price;
 
-    // Validate address
-    if(empty($address)) {
-        $errors[] = "Address is required.";
-    }
+        // Get the current date
+        $orderDate = date("Y-m-d");
 
-    // Display errors if any
-    if(!empty($errors)) {
-        foreach($errors as $error) {
-            echo "<p>$error</p>";
+        // Insert into orders table
+        $orderInsertQuery = "INSERT INTO orders (food_id, customer_id, quantity, total, orderDate) 
+                             VALUES ($fid, $customerId, $qty, $totalPrice, '$orderDate')";
+        if(mysqli_query($con, $orderInsertQuery)) {
+            // Process the order
+            // For demonstration purposes, let's just display a confirmation message
+            echo "<h2>Order Placed</h2>";
+            echo "<p>Your order has been placed successfully with the following details:</p>";
+            echo "<p>Food Name: $fid</p>";
+            echo "<p>Quantity: $qty</p>";
+            echo "<p>Full Name: $customerName</p>";
+            echo "<p>Phone Number: $phoneno</p>";
+            echo "<p>Email: $email</p>";
+            echo "<p>Address: $address</p>";
+        } else {
+            echo "Error inserting order: " . mysqli_error($con);
         }
     } else {
-        // If no errors, process the order (e.g., insert into database)
-        // For demonstration purposes, let's just display the order details
-        echo "<h2>Order Summary</h2>";
-        echo "<p>Food Name: $foodName</p>";
-        echo "<p>Quantity: $qty</p>";
-        echo "<p>Full Name: $fullName</p>";
-        echo "<p>Contact: $contact</p>";
-        echo "<p>Email: $email</p>";
-        echo "<p>Address: $address</p>";
+        echo "Error inserting customer: " . mysqli_error($con);
     }
+} else {
+    echo "Form not submitted.";
 }
 ?>
