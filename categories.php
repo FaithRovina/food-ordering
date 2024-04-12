@@ -1,6 +1,6 @@
 <?php
-include('../partials/user_menu.php');
-include('../settings/connection.php');
+include('partials/user_menu.php');
+include('settings/connection.php');
 ?>
     <!-- Categories Section Starts Here -->
     <section class="categories">
