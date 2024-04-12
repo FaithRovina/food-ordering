@@ -6,8 +6,8 @@
     <title>Order Form</title>    
 </head>
 <body>
-<?php include ('partials\user_menu.php');
-include ('settings/connection.php');
+<?php include ('../partials/user_menu.php');
+include ('../settings/connection.php');
 
 // Check if the food ID is set
 if(isset($_GET['fid'])) {
@@ -117,6 +117,6 @@ if(isset($_GET['fid'])) {
     }
 </script>
 
-<?php include ('partials\footer.php'); ?>
+<?php include ('../partials/footer.php'); ?>
 </body>
 </html>

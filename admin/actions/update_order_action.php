@@ -38,4 +38,4 @@ if(isset($_POST['submit'])){
         echo "Failed to retrieve food price. Please try again.";
     }
 }
-?>
+

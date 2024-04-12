@@ -71,7 +71,7 @@
                     echo "<td>" . $row["delivery_address"] . "</td>";
                     echo "<td class='btn-container'>"; // Button container for same line buttons
                     echo "<a href='update_order.php?order_id=" . $row["order_id"] . "' class='btn-secondary'> Update Order </a>";
-                    echo "<a href='delete_order.php?order_id=" . $row["order_id"] . "' class='btn-danger'> Delete Order </a>";             
+                    echo "<a href='actions/delete_order_action.php?order_id=" . $row["order_id"] . "' class='btn-danger'> Delete Order </a>";             
                     echo "</td>";
                     echo "</tr>";
                 }

@@ -1,6 +1,7 @@
 <?php
-include('../partials/user_menu.php');
-include('../settings/connection.php');
+include_once(__DIR__ . '/../partials/user_menu.php');
+include_once(__DIR__ . '/../settings/connection.php');
+
 ?>
     <!-- Categories Section Starts Here -->
     <section class="categories">
@@ -77,5 +78,5 @@ include('../settings/connection.php');
 
 
 <?php
-include('partials\footer.php');
+include('../partials/footer.php');
 ?>
