@@ -57,9 +57,11 @@ if(isset($_GET['fid'])) {
                 <input type="tel" id="phoneno" name="phoneno" placeholder="E.g. +1234567890" class="input-responsive" required>
                 <div class="order-label">Email</div>
                 <input type="email" id="email" name="email" placeholder="E.g. faith@gmail.com" class="input-responsive" required>
-                <div class="order-label">Address</div>
-                <textarea id="address" name="address" rows="10" placeholder="E.g. Street, City, Country" class="input-responsive" required></textarea>
+                <div class="order-label">Table Number</div>
+                <input type="text" id="tableNumber" name="tableNumber" placeholder="E.g. Table 5" class="input-responsive" required>
+
                 <input type="hidden" name="fid" value="<?php echo $fid; ?>">
+                <input type="hidden" id="orderDateTime" name="orderDateTime">
                 <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary">
             </fieldset>
         </form>
@@ -72,7 +74,12 @@ if(isset($_GET['fid'])) {
         var customerName = document.getElementById("customerName").value;
         var phoneno = document.getElementById("phoneno").value;
         var email = document.getElementById("email").value;
-        var address = document.getElementById("address").value;
+        var tableNumber = document.getElementById("tableNumber").value;
+
+        // Set order date and time
+        var currentTime = new Date();
+        var orderDateTime = currentTime.toISOString(); // Getting date and time in ISO format
+        document.getElementById("orderDateTime").value = orderDateTime;
 
         // Validate Quantity
         if (qty < 1) {
@@ -100,9 +107,9 @@ if(isset($_GET['fid'])) {
             return false;
         }
 
-        // Validate Address
-        if (address.trim() === "") {
-            alert("Please enter your address.");
+        // Validate Table Number
+        if (tableNumber.trim() === "") {
+            alert("Please enter the table number.");
             return false;
         }
 
@@ -112,7 +119,7 @@ if(isset($_GET['fid'])) {
                        "Customer Name: " + customerName + "\n" +
                        "Phone Number: " + phoneno + "\n" +
                        "Email: " + email + "\n" +
-                       "Address: " + address + "\n" +
+                       "Table Number: " + tableNumber + "\n" +
                        "Proceed with order?");
     }
 </script>

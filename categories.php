@@ -2,21 +2,21 @@
 include('partials/user_menu.php');
 include('settings/connection.php');
 ?>
-    <!-- Categories Section Starts Here -->
-    <section class="categories">
-        <div class="container">
-            <h2 class="text-center">Explore Foods</h2>
+<!-- Categories Section Starts Here -->
+<section class="categories">
+    <div class="container">
+        <h2 class="text-center">Explore Foods</h2>
 
-                <?php
-            // Query to fetch categories from the category table
-            $sql = "SELECT title, catimage FROM category WHERE active='yes' AND featured ='yes' LIMIT 3";
-            $result = mysqli_query($con, $sql);
+        <?php
+        // Query to fetch categories from the category table
+        $sql = "SELECT catid, title, catimage FROM category WHERE active='yes' AND featured ='yes' LIMIT 6";
+        $result = mysqli_query($con, $sql);
 
-            // Check if the query was successful
-            if ($result) {
+        // Check if the query was successful
+        if ($result) {
             // Loop through the fetched categories and display them
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<a href="category-foods.php">';
+                echo '<a href="category-foods.php?catid=' . $row['catid'] . '">';
                 echo '<div class="box-3 float-container">';
                 echo '<img src="images/' . $row['catimage'] . '" alt="' . $row['title'] . '" class="img-responsive img-curve">';
                 echo '<h3 class="float-text text-white">' . $row['title'] . '</h3>';
@@ -27,12 +27,12 @@ include('settings/connection.php');
             echo "Error fetching categories: " . mysqli_error($con);
         }
         ?>
-        
+
         <div class="clearfix"></div>
 
-        </div>
-    </section>
-    <!-- Categories Section Ends Here -->
+    </div>
+</section>
+<!-- Categories Section Ends Here -->
 
 <!-- Food Menu-->
 <section class="food-menu">
@@ -71,11 +71,11 @@ include('settings/connection.php');
     </div>
 
     <p class="text-center">
-        <a href="#">See All Foods</a>
+        <a href="foods.php">See All Foods</a>
     </p>
 </section>
 
 
 <?php
-include('partials\footer.php');
+include('partials/footer.php');
 ?>

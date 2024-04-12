@@ -8,8 +8,12 @@ if(isset($_POST['submit'])) {
     $customerName = mysqli_real_escape_string($con, $_POST['customerName']);
     $phoneno = mysqli_real_escape_string($con, $_POST['phoneno']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
-    $address = mysqli_real_escape_string($con, $_POST['address']);
+    $tableNumber = mysqli_real_escape_string($con, $_POST['tableNumber']); 
     $fid = mysqli_real_escape_string($con, $_POST['fid']);
+    $orderDateTime = mysqli_real_escape_string($con, $_POST['orderDateTime']); // Retrieve order date and time
+
+
+
 
     // Insert into customer table
     $customerInsertQuery = "INSERT INTO customer (customerName, phoneno, email) 
@@ -27,12 +31,11 @@ if(isset($_POST['submit'])) {
         // Calculate total price
         $totalPrice = $qty * $price;
 
-        // Get the current date
-        $orderDate = date("Y-m-d");
+       
 
         // Insert into orders table
-        $orderInsertQuery = "INSERT INTO orders (food_id, customer_id, quantity, total, orderDate, delivery_address) 
-                             VALUES ($fid, $customerId, $qty, $totalPrice, '$orderDate','$address')";
+        $orderInsertQuery = "INSERT INTO orders (food_id, customer_id, quantity, total, orderDate, tableNumber) 
+                             VALUES ($fid, $customerId, $qty, $totalPrice, '$orderDateTime','$tableNumber')";
         if(mysqli_query($con, $orderInsertQuery)) { 
             ?>
             <script>

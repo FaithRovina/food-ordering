@@ -38,7 +38,7 @@
                 <th> Customer Name </th>
                 <th> Contact </th>
                 <th> Email </th>
-                <th> Address </th>
+                <th> Table Number </th>
                 <th> Actions </th>
             </tr>
 
@@ -47,7 +47,7 @@
             include_once '../settings/connection.php';
 
             // SQL query to fetch orders data with customer details and status name
-            $sql = "SELECT o.order_id, f.fname, o.quantity, o.total, o.orderDate, s.sname, c.customerName, c.phoneno, c.email, o.delivery_address 
+            $sql = "SELECT o.order_id, f.fname, o.quantity, o.total, o.orderDate, s.sname, c.customerName, c.phoneno, c.email, o.tableNumber 
                     FROM orders o
                     INNER JOIN customer c ON o.customer_id = c.customerId
                     INNER JOIN status s ON o.status_id = s.sid
@@ -68,7 +68,7 @@
                     echo "<td>" . $row["customerName"] . "</td>";
                     echo "<td>" . $row["phoneno"] . "</td>";
                     echo "<td>" . $row["email"] . "</td>";
-                    echo "<td>" . $row["delivery_address"] . "</td>";
+                    echo "<td>" . $row["tableNumber"] . "</td>";
                     echo "<td class='btn-container'>"; // Button container for same line buttons
                     echo "<a href='update_order.php?order_id=" . $row["order_id"] . "' class='btn-secondary'> Update Order </a>";
                     echo "<a href='actions/delete_order_action.php?order_id=" . $row["order_id"] . "' class='btn-danger'> Delete Order </a>";             

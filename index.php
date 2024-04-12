@@ -4,7 +4,7 @@ include('settings/connection.php');
 
 ?>
 
-<!-- fOOD sEARCH Section Starts Here -->
+<!-- food  search section starts Here -->
 <section class="food-search text-center">
     <div class="container">            
         <form action="food-search.php" method="POST">
@@ -21,7 +21,7 @@ include('settings/connection.php');
 
         <?php
         // Query to fetch categories from the category table
-        $sql = "SELECT catid, title, catimage FROM category WHERE featured ='yes' LIMIT 6";
+        $sql = "SELECT catid, title, catimage FROM category WHERE featured ='yes' LIMIT 3";
         $result = mysqli_query($con, $sql);
 
         // Check if the query was successful
@@ -43,6 +43,7 @@ include('settings/connection.php');
         <div class="clearfix"></div>
     </div>
 </section>
+<div>
 
 <!-- Footer -->
 <?php include('partials\footer.php') ?>

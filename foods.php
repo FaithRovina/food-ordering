@@ -20,7 +20,7 @@ include('settings\connection.php');
 
         <?php
         // Query to fetch food name, description, price, and image from the food table
-        $sql = "SELECT fname, description, price, fid,  food_image FROM food WHERE active='yes' LIMIT 6";
+        $sql = "SELECT fname, description, price, fid,  food_image FROM food WHERE active='yes'";
         $result2 = mysqli_query($con, $sql);
 
         // Check if the query was successful
@@ -49,9 +49,6 @@ include('settings\connection.php');
 
     </div>
     
-    <p class="text-center">
-        <a href="#">See All Foods</a>
-    </p>
 </section>
    
 </body>
