@@ -1,5 +1,5 @@
 <?php
-include('partials\user_menu.php');
+include('partials/user_menu.php');
 include('settings/connection.php');
 
 ?>

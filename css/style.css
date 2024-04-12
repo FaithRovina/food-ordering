@@ -131,6 +131,36 @@ fieldset{
 
 
 /* CSS for Food Menu */
+.food-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.food-menu-row {
+    width: 98%; /* Adjust as needed */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.food-menu-box {
+    width: 98%; /* Adjust as needed */
+}
+
+.food-menu-img img {
+    width: 100%;
+    height: auto;
+}
+
+.food-menu-desc {
+    padding: 5px;
+    background-color: #f9f9f9;
+}
+
+.clearfix {
+    clear: both;
+}
 .food-menu{
     background-color: #ececec;
     padding: 4% 0;
@@ -215,3 +245,5 @@ fieldset{
     display: inline;
     margin-right: 8px; 
 }
+
+

@@ -55,7 +55,6 @@ if(isset($_POST['submit'])) {
     <div class="clearfix"></div>
 
     </div>
-
     
     </section>
 
