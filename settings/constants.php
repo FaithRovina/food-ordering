@@ -1,2 +1,2 @@
 <?php
-define('SITEURL','https://farmtofork.azurewebsites.net/');
+define('SITEURL',trim('https://farmtofork.azurewebsites.net/'));
