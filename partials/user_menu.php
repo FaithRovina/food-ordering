@@ -32,9 +32,7 @@
                     <li>
                         <a href="http://localhost/food-ordering/user/foods.php">Foods</a>
                     </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
+                    
                 </ul>
             </div>
 
