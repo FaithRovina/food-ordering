@@ -1,6 +1,8 @@
 <?php
 include('../settings/connection.php');
+include('../settings/constants.php');
 include('login/login_check.php');
+
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,13 +18,21 @@ include('login/login_check.php');
    <div class="menu" text-center>
         <div class="wrapper">
             <ul>
+
                 <li><a href="index.php">Home</a></li>
+                <li><a href="../manage_admin.php">Admin</a></li>
+                <li><a href="../manage_categories.php">Category</a></li>
+                <li><a href="../manage_foods.php">Foods</a></li>
+                <li><a href="../manage_orders.php">Order</a></li>
+                <li><a href="../admin/login/logout_admin_view.php"> <i class="fa fa-sign-out" aria-hidden="true"></i> </a></li>
+                 
+                <!-- <li><a href="index.php">Home</a></li>
                 <li><a href="<?php echo SITEURL; ?>manage_admin.php">Admin</a></li>
                 <li><a href="<?php echo SITEURL; ?>manage_categories.php">Category</a></li>
                 <li><a href="<?php echo SITEURL; ?>manage_foods.php">Foods</a></li>
                 <li><a href="<?php echo SITEURL; ?>manage_orders.php">Order</a></li>
                 <li><a href="<?php echo SITEURL; ?>admin/login/logout_admin_view.php"> <i class="fa fa-sign-out" aria-hidden="true"></i> </a></li>
-                
+                 -->
             </ul>
         </div>
     </div>
