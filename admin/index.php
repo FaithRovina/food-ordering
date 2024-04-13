@@ -1,4 +1,7 @@
-<?php include ('partials/menu.php'); 
+<?php 
+include ('partials/menu.php');
+include('../../settings/connection.php'); 
+include('../../settings/constants.php'); 
 include('functions/get_total_categories_fxn.php');
 include('functions/get_total_foods_fxn.php');
 include('functions/get_total_orders_fxn.php');

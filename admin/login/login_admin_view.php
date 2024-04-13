@@ -12,8 +12,7 @@
   <div class="container">
     <div class="wrapper">
       <div class="title"><span>Login Form</span></div>
-      <form action="http://localhost/food-ordering/admin/actions/login_admin_action.php" method="POST" onsubmit="return validateForm()">
-        <div class="row">
+      <form action="<?php echo SITEURL; ?>actions/login_admin_action.php" method="POST" onsubmit="return validateForm()">        <div class="row">
           <i class="fas fa-user"></i>
           <input type="text" name="username" placeholder="Username" required>
         </div>
