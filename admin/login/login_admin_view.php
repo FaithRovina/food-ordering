@@ -17,7 +17,7 @@ include('../../settings/constants.php');
     <div class="wrapper">
       <div class="title"><span>Login Form</span></div>
 
-      <form action="<?php echo SITEURL; ?>admin/actions/login_admin_action.php" method="POST" onsubmit="return validateForm()">
+      <form action="<?php echo SITEURL; ?> admin/actions/login_admin_action.php" method="POST" onsubmit="return validateForm()">
         <div class="row">
           <i class="fas fa-user"></i>
           <input type="text" id="username" name="username" placeholder="Username" required>
