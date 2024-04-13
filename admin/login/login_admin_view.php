@@ -14,11 +14,7 @@ include('../../settings/connection.php');
 <body>
   <div class="container">
     <div class="wrapper">
-      /* It looks like there is a syntax error in the code snippet you provided. The `<div
-      class="title"><span>Login Form</span></div` is not properly closed with a closing angle
-      bracket `>`. This can cause issues with the structure of the HTML document. */
       <div class="title"><span>Login Form</span></div>
-
       <form action="<?php echo SITEURL; ?>actions/login_admin_action.php" method="POST" onsubmit="return validateForm()">
         <div class="row">
           <i class="fas fa-user"></i>
