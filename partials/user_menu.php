@@ -17,20 +17,20 @@
         <div class="container">
             <div class="logo">
                 <a href="#" title="Logo">
-                    <img src="images\logo1.png" alt="Restaurant Logo" class="img-responsive">
+                    <img src="http://localhost/food-ordering/images/logo1.png" alt="Restaurant Logo" class="img-responsive">
                 </a>
             </div>
 
             <div class="menu text-right">
                 <ul>
                     <li>
-                        <a href="index.php">Home</a>
+                        <a href="http://localhost/food-ordering/">Home</a>
                     </li>
                     <li>
-                        <a href="categories.php">Categories</a>
+                        <a href="http://localhost/food-ordering/user/categories.php">Categories</a>
                     </li>
                     <li>
-                        <a href="foods.php">Foods</a>
+                        <a href="http://localhost/food-ordering/user/foods.php">Foods</a>
                     </li>
                     <li>
                         <a href="#">Contact</a>

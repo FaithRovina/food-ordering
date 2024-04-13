@@ -1,6 +1,9 @@
 <?php
-include('partials/user_menu.php');
-include('settings/connection.php');
+include('../partials/user_menu.php');
+include('../settings/connection.php');
+?>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<?php
 
 // Check if the category_id is set
 if (isset($_GET['catid'])) {
@@ -35,7 +38,7 @@ if (isset($_GET['catid'])) {
                 echo '<div class="col-md-4">';
                 echo '<div class="food-menu-box">';
                 echo '<div class="food-menu-img">';
-                echo '<img src="images/' . $row_food['food_image'] . '" alt="' . $row_food['fname'] . '" class="img-responsive img-curve">';
+                echo '<img src="../images/' . $row_food['food_image'] . '" alt="' . $row_food['fname'] . '" class="img-responsive img-curve">';
                 echo '</div>';
                 echo '<div class="food-menu-desc">';
                 echo '<h4>' . $row_food['fname'] . '</h4>';
@@ -64,5 +67,5 @@ if (isset($_GET['catid'])) {
     exit();
 }
 
-include('partials/footer.php'); 
+include('../partials/footer.php'); 
 

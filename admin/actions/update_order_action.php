@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
     $order_id = $_POST['order_id'];
     $food_id = $_POST['food_id'];
     $quantity = $_POST['quantity'];
-    $delivery_address = $_POST['delivery_address'];
+    $tableNumber = $_POST['tableNumber'];
     $status_id = $_POST['status'];
 
     // Retrieve the price of the selected food from the database
@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
         $total = $quantity * $food_price;
 
         // Update order query with the calculated total price
-        $sql = "UPDATE orders SET food_id = '$food_id', quantity = '$quantity', total = '$total', delivery_address = '$delivery_address', status_id = '$status_id' WHERE order_id = '$order_id'";
+        $sql = "UPDATE orders SET food_id = '$food_id', quantity = '$quantity', total = '$total', tableNumber = '$tableNumber', status_id = '$status_id' WHERE order_id = '$order_id'";
 
         // Execute query
         $result = mysqli_query($con, $sql);

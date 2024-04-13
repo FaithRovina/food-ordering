@@ -1,5 +1,5 @@
 <?php
-include ('settings/connection.php');
+include ('../settings/connection.php');
 
 // Check if the form is submitted
 if(isset($_POST['submit'])) {
@@ -40,7 +40,7 @@ if(isset($_POST['submit'])) {
             ?>
             <script>
                 alert("Order has been placed successfully. Our team will contact you soon!");
-                window.location.href = "index.php"; // Redirect to homepage after displaying the alert
+                window.location.href = "http://localhost/food-ordering/index.php"; // Redirect to homepage after displaying the alert
             </script>
             <?php
         } else {

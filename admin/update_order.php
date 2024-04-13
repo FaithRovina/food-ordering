@@ -18,7 +18,7 @@ include('../settings/connection.php');
             // Collecting the id of the selected order:
             $order_id = $_GET['order_id'];
             
-            $sql = "SELECT o.order_id, f.fname, o.quantity, o.total, o.orderDate, s.sname, c.customerName, c.phoneno, c.email, o.delivery_address, o.status_id
+            $sql = "SELECT o.order_id, f.fname, o.quantity, o.total, o.orderDate, s.sname, c.customerName, c.phoneno, c.email, o.tableNumber, o.status_id
                     FROM orders o
                     INNER JOIN customer c ON o.customer_id = c.customerId
                     INNER JOIN status s ON o.status_id = s.sid
@@ -40,7 +40,7 @@ include('../settings/connection.php');
                     $customerName = $row['customerName'];
                     $phoneno = $row['phoneno'];
                     $email = $row['email'];
-                    $delivery_address = $row['delivery_address'];
+                    $tableNumber = $row['tableNumber'];
                 } else {               
                     header('location:http://localhost/food-ordering/admin/manage_orders.php');
                 }
@@ -76,8 +76,8 @@ include('../settings/connection.php');
                     <td><input type="email" id="email" name="email" value="<?php echo $email;?>"></td>
                 </tr>
                 <tr>
-                    <td><label for="delivery_address">Delivery Address:</label></td>
-                    <td><textarea id="delivery_address" name="delivery_address"><?php echo $delivery_address;?></textarea></td>
+                    <td><label for="tableNumber">Table Number:</label></td>
+                    <td><textarea id="tableNumber" name="tableNumber"><?php echo $tableNumber;?></textarea></td>
                 </tr>
                 <tr>
                     <td><label for="status">Status:</label></td>

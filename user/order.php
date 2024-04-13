@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Form</title>    
+    <title>Order Form</title>  
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
 </head>
 <body>
-<?php include ('partials\user_menu.php');
-include ('settings/connection.php');
+<?php include ('../partials/user_menu.php');
+include ('../settings/connection.php');
 
 // Check if the food ID is set
 if(isset($_GET['fid'])) {
@@ -40,7 +42,7 @@ if(isset($_GET['fid'])) {
             <fieldset>
                 <legend>Selected Food</legend>
                 <div class="food-menu-img">
-                    <img src="images/<?php echo $food_image; ?>" alt="<?php echo $fname; ?>" class="img-responsive img-curve">
+                    <img src="../images/<?php echo $food_image; ?>" alt="<?php echo $fname; ?>" class="img-responsive img-curve">
                 </div>
                 <div class="food-menu-desc">
                     <h3><?php echo $fname; ?></h3>
@@ -113,6 +115,12 @@ if(isset($_GET['fid'])) {
             return false;
         }
 
+        // Validate Table Number not exceeding 30
+        if (parseInt(tableNumber) > 30) {
+             alert("Table number should not exceed 30.");
+            return false;
+       }
+
         return confirm("Confirm Order Details:\n" + 
                        "Food Name: <?php echo $fname; ?>\n" +
                        "Quantity: " + qty + "\n" +
@@ -124,6 +132,6 @@ if(isset($_GET['fid'])) {
     }
 </script>
 
-<?php include ('partials\footer.php'); ?>
+<?php include ('../partials/footer.php'); ?>
 </body>
 </html>

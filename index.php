@@ -7,7 +7,7 @@ include('settings/connection.php');
 <!-- food  search section starts Here -->
 <section class="food-search text-center">
     <div class="container">            
-        <form action="food-search.php" method="POST">
+        <form action="../food-search.php" method="POST">
             <input type="search" name="search" placeholder="Search for Food.." required>
             <input type="submit" name="submit" value="Search" class="btn btn-primary">
         </form>
@@ -28,7 +28,7 @@ include('settings/connection.php');
         if ($result) {
             // Loop through the fetched categories and display them
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<a href="category-foods.php?catid=' . $row['catid'] . '">';
+                echo '<a href="user/category_foods.php?catid=' . $row['catid'] . '">';
                 echo '<div class="box-3 float-container">';
                 echo '<img src="images/' . $row['catimage'] . '" alt="' . $row['title'] . '" class="img-responsive img-curve">';
                 echo '<h3 class="float-text text-white">' . $row['title'] . '</h3>';

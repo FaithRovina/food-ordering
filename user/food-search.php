@@ -1,6 +1,6 @@
 <?php
-include('partials\user_menu.php');
-include('settings\connection.php');
+include('../partials/user_menu.php');
+include('../settings/connection.php');
 ?>
 
 <!-- fOOD sEARCH Section Starts Here -->
@@ -61,5 +61,5 @@ if(isset($_POST['submit'])) {
 </body>
 </html>
 <?php
-include('partials\footer.php');
+include('../partials/footer.php');
 ?>

@@ -1,7 +1,8 @@
 <?php
-include('partials\user_menu.php');
-include('settings\connection.php');
+include('../partials/user_menu.php');
+include('../settings/connection.php');
 ?>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
 <!-- Food Search -->
    <section class="food-search text-center">
         <div class="container">
@@ -38,7 +39,7 @@ include('settings\connection.php');
                 
                 echo '<div class="food-menu-box">';
                 echo '<div class="food-menu-img">';
-                echo '<img src="images/' . $item['food_image'] . '" alt="' . $item['fname'] . '" class="img-responsive img-curve">';
+                echo '<img src="../images/' . $item['food_image'] . '" alt="' . $item['fname'] . '" class="img-responsive img-curve">';
                 echo '</div>';
                 echo '<div class="food-menu-desc">';
                 echo '<h4>' . $item['fname'] . '</h4>';
@@ -71,5 +72,5 @@ include('settings\connection.php');
 </body>
 </html>
 <?php
-include('partials\footer.php');
+include('../partials/footer.php');
 ?>

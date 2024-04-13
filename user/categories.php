@@ -1,18 +1,20 @@
 <?php
-include('partials/user_menu.php');
-include('settings/connection.php');
+include('../partials/user_menu.php');
+include('../settings/connection.php');
 ?>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
 <style>
 /* Style for the container holding the categories */
 .categories .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust min and max width as needed */
-    gap: 20px; /* Spacing between items */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px; 
 }
 
 /* Style for each category item */
 .categories .box-3 {
-    width: 100%; /* Each item takes full width */
+    width: 100%; 
 }
 
 /* Clearfix to prevent layout issues */
@@ -36,9 +38,9 @@ include('settings/connection.php');
         if ($result) {
             // Loop through the fetched categories and display them
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<a href="category-foods.php?catid=' . $row['catid'] . '">';
+                echo '<a href="category_foods.php?catid=' . $row['catid'] . '">';
                 echo '<div class="box-3 float-container">';
-                echo '<img src="images/' . $row['catimage'] . '" alt="' . $row['title'] . '" class="img-responsive img-curve">';
+                echo '<img src="../images/' . $row['catimage'] . '" alt="' . $row['title'] . '" class="img-responsive img-curve">';
                 echo '<h3 class="float-text text-white">' . $row['title'] . '</h3>';
                 echo '</div>';
                 echo '</a>';
@@ -63,6 +65,6 @@ include('settings/connection.php');
         </section>
     <section>
     <?php
-    include('partials\footer.php');
+    include('../partials/footer.php');
     ?>
 </section>
