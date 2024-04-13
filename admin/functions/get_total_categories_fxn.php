@@ -22,7 +22,7 @@ function getTotalCategories() {
     } else {
         // Handle the case where the query fails
         echo "Error: " . mysqli_error($con);
-        return 0; // Return 0 or any other default value
+        return 0; 
     }
 }
 

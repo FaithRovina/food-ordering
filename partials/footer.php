@@ -18,7 +18,7 @@
 
     <!-- social Section Ends Here -->
 
-    <!-- footer Section Starts Here -->
+    <!-- footer section Starts Here -->
     <section class="footer">
         <div class="container text-center">
             <p> Designed By <a href="#">Faith Rovina</a></p>

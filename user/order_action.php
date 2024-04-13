@@ -12,10 +12,6 @@ if(isset($_POST['submit'])) {
     $fid = mysqli_real_escape_string($con, $_POST['fid']);
     $orderDateTime = date('Y-m-d H:i:s', strtotime($_POST['orderDateTime']));
 
-
-
-
-
     // Insert into customer table
     $customerInsertQuery = "INSERT INTO customer (customerName, phoneno, email) 
                             VALUES ('$customerName', '$phoneno', '$email')";

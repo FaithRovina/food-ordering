@@ -5,7 +5,7 @@ function getTotalOrders() {
     global $con; // Assuming $con is your database connection variable
     
     // SQL query to count the number of rows in the order table
-    //$sql = "SELECT COUNT(*) AS total_orders FROM `orders`"; 
+   
     $sql = "SELECT COUNT(*) AS total_orders FROM `orders` WHERE status_id = 3 "; 
     // Execute the query
     $result = mysqli_query($con, $sql);

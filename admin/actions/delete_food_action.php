@@ -33,4 +33,4 @@ if (isset($_GET['fid'])) {
     // Food ID not provided
     echo "Food ID not provided";
 }
-?>
+
