@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Execute the query
                 if (mysqli_query($con, $sql)) {
                     // Food added successfully
-                    header("Location: http://localhost/food-ordering/admin/manage_foods.php");
+                    header("Location:../manage_foods.php");
                     exit();
                 } else {
                     // Error handling if insertion fails

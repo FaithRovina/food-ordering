@@ -2,6 +2,8 @@
 include('../partials/user_menu.php');
 include('../settings/connection.php');
 ?>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
 
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
@@ -32,7 +34,7 @@ if(isset($_POST['submit'])) {
         while($row = mysqli_fetch_assoc($result)) {
             echo '<div class="food-menu-box">';
             echo '<div class="food-menu-img">';
-            echo '<img src="images/' . $row['food_image'] . '" alt="' . $row['fname'] . '" class="img-responsive img-curve">';
+            echo '<img src="../images/' . $row['food_image'] . '" alt="' . $row['fname'] . '" class="img-responsive img-curve">';
             echo '</div>';
             echo '<div class="food-menu-desc">';
             echo '<h4>' . $row['fname'] . '</h4>';
