@@ -63,7 +63,7 @@ if (isset($_GET['catid'])) {
     }
 } else {
     // Redirect if category_id is not set
-    header('Location: http://localhost/food-ordering/index.php');
+    header('Location:../index.php');
     exit();
 }
 

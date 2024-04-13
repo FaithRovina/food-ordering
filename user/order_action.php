@@ -37,7 +37,7 @@ if(isset($_POST['submit'])) {
             ?>
             <script>
                 alert("Order has been placed successfully. Our team will contact you soon!");
-                window.location.href = "http://localhost/food-ordering/index.php";
+                window.location.href = "../index.php";
             </script>
             <?php
         } else {
