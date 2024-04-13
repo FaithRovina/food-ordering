@@ -20,6 +20,7 @@ $total_orders = getTotalOrders();
 $total_revenue = getTotalRevenue();
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
