@@ -1,3 +1,7 @@
+<?
+include('settings/constants.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
