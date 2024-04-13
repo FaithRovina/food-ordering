@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['username'] = $username;                
                 echo "<script>alert('Welcome, $username!');</script>";
                 echo "<script>window.location.href='" . SITEURL . "admin/index.php';</script>";
+
                 exit();
             } else {
                 // Incorrect password
