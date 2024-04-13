@@ -42,7 +42,7 @@ include('../settings/connection.php');
                     $email = $row['email'];
                     $tableNumber = $row['tableNumber'];
                 } else {               
-                    header('location:http://localhost/food-ordering/admin/manage_orders.php');
+                    header("Location: ". SITEURL. "manage_orders.php");
                 }
             }
         ?>

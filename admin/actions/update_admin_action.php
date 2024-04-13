@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check if update was successful
         if ($res) {
             // Redirect to manage_admin.php with success message
-            header('location: http://localhost/food-ordering/admin/manage_admin.php?message=Admin updated successfully');
+            header('location:../manage_admin.php?message=Admin updated successfully');
         } else {
             // Redirect to update_admin.php with error message
             header('location: admin/update_admin.php?adminid=' . $adminid . '&error=Failed to update admin');

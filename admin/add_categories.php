@@ -4,7 +4,7 @@
         <h1> Add Category </h1>
         <br /> <br />
 
-        <form action="http://localhost/food-ordering/admin/actions/add_category_action.php" method="post" enctype="multipart/form-data">
+        <form action="actions/add_category_action.php" method="post" enctype="multipart/form-data">
             <table class="table-add">            
                 <tr>
                     <td><label for="title">Category Title:</label></td>

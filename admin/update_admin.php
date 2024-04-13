@@ -22,7 +22,8 @@ include('../settings/connection.php');
                 $fullname = $row['fullname'];
                 $username = $row['username'];
             }else{               
-                header('location:http://localhost/food-ordering/admin/manage_admin.php');
+                
+                header("Location: ". SITEURL. "/admin/manage_admin.php");
             }
         }
 

@@ -17,7 +17,7 @@ if (isset($_GET['adminid'])) {
         // Check if any rows were affected
         if ($stmt->affected_rows > 0) {
             // Admin deleted successfully
-            header('Location: http://localhost/food-ordering/admin/manage_admin.php');
+            header("Location: ". SITEURL. "manage_admin.php");
         } else {
             // Admin with given ID not found
             echo "Admin with given ID not found";

@@ -23,12 +23,12 @@ include('../settings/connection.php');?>
             $hashed_password = $row['password'];
         } else {
             // Redirect if admin not found
-            header('location: http://localhost/food-ordering/admin/manage_admin.php');
+            header("Location: ". SITEURL. "manage_admin.php");
             exit(); // Terminate script execution after redirection
         }
     } else {
         // Redirect in case of SQL query error
-        header('location: http://localhost/food-ordering/admin/manage_admin.php');
+        header("Location: ". SITEURL. "manage_admin.php");
         exit(); // Terminate script execution after redirection
     }
     ?>

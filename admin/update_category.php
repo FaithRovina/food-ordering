@@ -23,7 +23,7 @@ include('../settings/connection.php');
                 $featured = $row['featured'];
                 $active = $row['active'];
             } else {               
-                header('location: http://localhost/food-ordering/admin/manage_categories.php');
+                header("Location: ". SITEURL. "../admin/manage_categories.php");
             }
         }
     ?>

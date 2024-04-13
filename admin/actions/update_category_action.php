@@ -1,7 +1,6 @@
 <?php
 // Include your database connection file
 include('../../settings/connection.php');
-
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize input data
@@ -41,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Check if update was successful
             if ($res) {
                 // Redirect to manage_categories.php with success message
-                header('location: http://localhost/food-ordering/admin/manage_categories.php?message=Category updated successfully');
+                header('location: ../manage_categories.php?message=Category updated successfully');
                 exit();
             } else {
                 // Redirect to update_category.php with error message
@@ -62,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check if update was successful
         if ($res) {
             // Redirect to manage_categories.php with success message
-            header('location: http://localhost/food-ordering/admin/manage_categories.php?message=Category updated successfully');
+            header('location: ../manage_categories.php?message=Category updated successfully');
             exit();
         } else {
             // Redirect to update_category.php with error message

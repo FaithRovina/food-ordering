@@ -4,7 +4,7 @@
         <h1> Add Food </h1>
         <br /> <br />
 
-        <form action="http://localhost/food-ordering/admin/actions/add_food_action.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <form action="actions/add_food_action.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
             <table class="table-add">            
                 <tr>
                     <td><label for="fname">Food Name:</label></td>

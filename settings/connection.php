@@ -10,4 +10,3 @@ $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE) or die("The database
 if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
-define('SITEURL','https://farmtofork.azurewebsites.net/');

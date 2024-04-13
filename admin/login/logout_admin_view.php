@@ -17,6 +17,6 @@ header("Cache-Control: no-cache, must-revalidate");
 header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
 // Redirect to the login page
-header("Location:http://localhost/food-ordering/admin/login/login_admin_view.php");
+header("Location:login_admin_view.php");
 exit();
 

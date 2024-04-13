@@ -10,7 +10,7 @@ $current_admin_username = isset($_SESSION['username']) ? $_SESSION['username'] :
 
 if (!$current_admin_username) {
     // If the username is not set in session, redirect to login page or display a message
-    echo "<script>alert('You are not logged in.'); window.location.href = 'admin_index.php';</script>";
+    echo "<script>alert('You are not logged in.'); window.location.href = 'admin_dashbaord.php';</script>";
     
 } else {
     // SQL query to retrieve the admin ID based on the username
@@ -19,7 +19,7 @@ if (!$current_admin_username) {
 
     if ($result->num_rows != 1) {
         // If the username is not found or multiple matches found, display a message or redirect
-        echo "<script>alert('You are not authorized to access this page.'); window.location.href = 'index.php';</script>";
+        echo "<script>alert('You are not authorized to access this page.'); window.location.href = 'admin_dashboard.php';</script>";
         
     } else {
         // If a single match for the username is found, get the admin ID
@@ -29,7 +29,7 @@ if (!$current_admin_username) {
         // Check if the current admin is admin ID 16
         if ($current_admin_id != 16) {
             // If the current admin is not ID 16, display a message or redirect
-            echo "<script>alert('You are not authorized to access this page.'); window.location.href = 'index.php';</script>";
+            echo "<script>alert('You are not authorized to access this page.'); window.location.href = 'admin_dashboard.php';</script>";
             
         } else {
             // If the current admin is ID 16, display the page content

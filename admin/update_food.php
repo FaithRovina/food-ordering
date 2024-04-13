@@ -35,7 +35,7 @@ include('../settings/connection.php');
                     $category_id = $row['category_id'];
                     $food_image = $row['food_image'];
                 } else {               
-                    header('location: http://localhost/food-ordering/admin/manage_foods.php');
+                    header("Location: ". SITEURL. "manage_foods.php");
                 }
             }
         ?>

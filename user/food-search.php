@@ -3,8 +3,6 @@ include('../partials/user_menu.php');
 include('../settings/connection.php');
 ?>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
-
-
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
     <div class="container">
