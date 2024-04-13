@@ -10,7 +10,8 @@ if(isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $tableNumber = mysqli_real_escape_string($con, $_POST['tableNumber']); 
     $fid = mysqli_real_escape_string($con, $_POST['fid']);
-    $orderDateTime = mysqli_real_escape_string($con, $_POST['orderDateTime']); // Retrieve order date and time
+    $orderDateTime = date('Y-m-d H:i:s', strtotime($_POST['orderDateTime']));
+
 
 
 
@@ -40,7 +41,7 @@ if(isset($_POST['submit'])) {
             ?>
             <script>
                 alert("Order has been placed successfully. Our team will contact you soon!");
-                window.location.href = "http://localhost/food-ordering/index.php"; // Redirect to homepage after displaying the alert
+                window.location.href = "http://localhost/food-ordering/index.php";
             </script>
             <?php
         } else {
