@@ -16,7 +16,7 @@ if (isset($_GET['fid'])) {
         // Check if any rows were affected
         if ($stmt->affected_rows > 0) {
             // Food item deleted successfully
-            header('Location: http://localhost/food-ordering/admin/manage_foods.php');
+            header('Location:../manage_foods.php');
             exit(); // Exit to prevent further execution
         } else {
             // Food item with given ID not found

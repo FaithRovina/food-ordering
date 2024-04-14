@@ -17,7 +17,7 @@ if (isset($_GET['catid'])) {
         // Check if any rows were affected
         if ($stmt->affected_rows > 0) {
             // Category deleted successfully
-            header('Location: http://localhost/food-ordering/admin/manage_categories.php');
+            header('Location:../manage_categories.php');
         } else {
             // Category with given ID not found
             echo "Category with given ID not found";

@@ -31,35 +31,35 @@ if(isset($_POST['adminid'], $_POST['old_password'], $_POST['new_password'], $_PO
 
                     if($update_res) {
                         // Password updated successfully, redirect to manage_admin.php
-                        header('Location: http://localhost/food-ordering/admin/manage_admin.php');
+                        header('Location:../manage_admin.php');
                         exit();
                     } else {
                         // Failed to update password, redirect to change password page
-                        header('Location: http://localhost/food-ordering/admin/change_admin_password.php?adminid=' . $adminid);
+                        header('Location:change_admin_password.php?adminid=' . $adminid);
                         exit();
                     }
                 } else {
                     // New password and confirm password do not match, redirect to change password page
-                    header('Location: http://localhost/food-ordering/admin/change_admin_password.php?adminid=' . $adminid);
+                    header('Location:change_admin_password.php?adminid=' . $adminid);
                     exit();
                 }
             } else {
                 // Old password doesn't match, redirect to change password page
-                header('Location: http://localhost/food-ordering/admin/change_admin_password.php?adminid=' . $adminid);
+                header('Location: change_admin_password.php?adminid=' . $adminid);
                 exit();
             }
         } else {
             // Admin not found, redirect to manage_admin.php
-            header('Location: http://localhost/food-ordering/admin/manage_admin.php');
+            header('Location:../manage_admin.php');
             exit();
         }
     } else {
         // Error fetching admin details, redirect to manage_admin.php
-        header('Location: http://localhost/food-ordering/admin/manage_admin.php');
+        header('Location:../manage_admin.php');
         exit();
     }
 } else {
     // Required fields not provided, redirect to change password page
-    header('Location: http://localhost/food-ordering/admin/change_admin_password.php');
+    header('Location:change_admin_password.php');
     exit();
 }
