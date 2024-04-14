@@ -23,10 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header('location:../manage_admin.php?message=Admin updated successfully');
         } else {
             // Redirect to update_admin.php with error message
-            header('location: admin/update_admin.php?adminid=' . $adminid . '&error=Failed to update admin');
+            header('location:../update_admin.php?adminid=' . $adminid . '&error=Failed to update admin');
         }
     } else {
         // Redirect to update_admin.php with error message
-        header('location: admin/update_admin.php?adminid=' . $adminid . '&error=All fields are required');
+        header('location:../update_admin.php?adminid=' . $adminid . '&error=All fields are required');
     }
 }
