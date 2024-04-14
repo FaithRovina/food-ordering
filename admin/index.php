@@ -3,6 +3,7 @@
 include ('partials/menu.php');
 include('../../settings/connection.php'); 
 include('../../settings/constants.php'); 
+
 include('functions/get_total_categories_fxn.php');
 include('functions/get_total_foods_fxn.php');
 include('functions/get_total_orders_fxn.php');
@@ -63,23 +64,23 @@ $total_revenue = getTotalRevenue();
                 Total Orders
             </div>
 
-            <div class="col-4 text-center">
+            <!-- <div class="col-4 text-center">
                 <h1><?php echo $processing_orders; ?></h1>
                 <br/>
                 Processing Orders
-            </div>
+            </div> -->
 
-            <div class="col-4 text-center">
+            <!-- <div class="col-4 text-center">
                 <h1><?php echo $delivered_orders; ?></h1>
                 <br/>
                 Delivered Orders
-            </div>
+            </div> -->
 
-            <div class="col-4 text-center">
+            <!-- <div class="col-4 text-center">
                 <h1><?php echo $cancelled_orders; ?></h1>
                 <br/>
                 Cancelled Orders
-            </div>
+            </div> -->
 
             <div class="col-4 text-center">
                 <h1>$<?php echo $total_revenue; ?></h1>

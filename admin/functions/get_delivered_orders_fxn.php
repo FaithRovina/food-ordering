@@ -2,7 +2,7 @@
 
 // Function to get the total number of orders
 function getDeliveredOrders() {
-    global $con; // Assuming $con is your database connection variable
+    global $con; 
     
     // SQL query to count the number of rows in the order table
    

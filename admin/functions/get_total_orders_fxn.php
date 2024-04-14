@@ -2,10 +2,9 @@
 
 // Function to get the total number of orders
 function getTotalOrders() {
-    global $con; // Assuming $con is your database connection variable
+    global $con; 
     
-    // SQL query to count the number of rows in the order table
-   
+    // SQL query to count the number of rows in the order table   
     $sql = "SELECT COUNT(*) AS total_orders FROM 'orders'"; 
     // Execute the query
     $result = mysqli_query($con, $sql);

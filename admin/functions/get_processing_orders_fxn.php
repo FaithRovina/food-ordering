@@ -2,11 +2,11 @@
 
 // Function to get the total number of orders
 function getProcessingOrders() {
-    global $con; // Assuming $con is your database connection variable
+    global $con; 
     
     // SQL query to count the number of rows in the order table
    
-    $sql = "SELECT COUNT(*) AS processing_orders FROM `orders` WHERE status_id = 2 "; 
+    $sql = "SELECT COUNT(*) AS processing_orders FROM 'orders' WHERE status_id = 2 "; 
     // Execute the query
     $result = mysqli_query($con, $sql);
 

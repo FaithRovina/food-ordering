@@ -21,8 +21,7 @@ function getTotalRevenue() {
         // Free the result set
         mysqli_free_result($result);
         
-        // Close the database connection (optional)
-        // mysqli_close($con);
+    
 
         return $total_revenue;
     } else {
