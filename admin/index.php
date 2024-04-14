@@ -44,7 +44,7 @@ $total_revenue = getTotalRevenue();
             position: fixed;
             bottom: 100px;
             left: 0;
-            width: 100%;
+            width: 50%;
             background-color: white;
             color: black;
             padding: 25px; 
@@ -79,19 +79,19 @@ $total_revenue = getTotalRevenue();
         </div>
 
         <div class="col-4 text-center">
-            <h1><?php echo $total_orders; ?></h1>
+            <h1><?php echo $processing_orders; ?></h1>
             <br/>
             Processing Orders
         </div>
 
         <div class="col-4 text-center">
-            <h1><?php echo $total_orders; ?></h1>
+            <h1><?php echo $delivered_orders; ?></h1>
             <br/>
             Delivered Orders
         </div>
 
         <div class="col-4 text-center">
-            <h1><?php echo $total_orders; ?></h1>
+            <h1><?php echo $cancelled_orders; ?></h1>
             <br/>
             Cancelled Orders
         </div>
