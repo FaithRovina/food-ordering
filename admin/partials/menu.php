@@ -19,7 +19,7 @@ include('login/login_check.php');
         <div class="wrapper">
             <ul>
 
-                <li><a href="admin/admin_dashboard.php">Home</a></li>
+                <li><a href="admin_dashboard.php">Home</a></li>
                 <li><a href="manage_admin.php">Admin</a></li>
                 <li><a href="manage_categories.php">Category</a></li>
                 <li><a href="manage_foods.php">Foods</a></li>
