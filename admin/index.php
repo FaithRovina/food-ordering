@@ -110,7 +110,7 @@ $total_revenue = getTotalRevenue();
     <script>
         // JavaScript code to display the moving text with typing effect
         var quote = "Finding the happiness and finding the satisfaction in continuously serving somebody else something good to eat is what makes a really good restaurant. — Mario Batali";
-        var speed = 100; // Adjust the speed of text movement (in milliseconds)
+        var speed = 100;
         var index = 0;
         var typingTimer;
 
