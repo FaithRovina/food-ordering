@@ -31,13 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 // Incorrect password
                 echo "<script>alert('Invalid password!');</script>";
-                echo "<script>window.location.href='" . SITEURL . "login/login_admin_view.php';</script>";
+                echo "<script>window.location.href='" . SITEURL . "../login/login_admin_view.php';</script>";
                 exit();
             }
         } else {
             // No user found with provided username
             echo "<script>alert('No user found with provided username.');</script>";
-            echo "<script>window.location.href='" . SITEURL . "login/login_admin_view.php';</script>";
+            echo "<script>window.location.href='" . SITEURL . "../login/login_admin_view.php';</script>";
             exit();
         }
     }
