@@ -1,6 +1,7 @@
 <?php 
 include ('partials/menu.php');
 include('../settings/connection.php');
+include('../settings/constants.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
