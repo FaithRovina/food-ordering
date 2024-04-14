@@ -1,5 +1,4 @@
 <?php
-include ('../../settings/connection.php');
 // Function to get the total number of food items
 function getTotalFoods() {
     global $con; 
@@ -28,4 +27,3 @@ function getTotalFoods() {
         return 0; 
     }
 }
-

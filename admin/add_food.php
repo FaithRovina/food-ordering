@@ -85,8 +85,8 @@
         // Check if all fields are entered
         if (fname === "" || description === "" || price === "" || category_id === "") {
             alert("Please fill in all fields.");
-            return false; // Prevent form submission
+            return false; 
         }
-        return true; // Allow form submission
+        return true; 
     }
 </script>

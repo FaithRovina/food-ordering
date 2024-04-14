@@ -1,11 +1,12 @@
 <?php
-include ('../../settings/connection.php');
+
 // Function to get the total number of orders
 function getTotalOrders() {
-    global $con; 
+    global $con; // Assuming $con is your database connection variable
     
-    // SQL query to count the number of rows in the order table   
-    $sql = "SELECT COUNT(*) AS total_orders FROM 'orders' where status_id = 3"; 
+    // SQL query to count the number of rows in the order table
+   
+    $sql = "SELECT COUNT(*) AS total_orders FROM `orders` WHERE status_id = 3 "; 
     // Execute the query
     $result = mysqli_query($con, $sql);
 
@@ -27,4 +28,3 @@ function getTotalOrders() {
         return 0; 
     }
 }
-

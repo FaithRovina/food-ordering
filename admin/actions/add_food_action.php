@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Ensure the upload directory exists
             if (!file_exists($upload_dir)) {
-                mkdir($upload_dir, 0777, true); // Create the directory recursively if it doesn't exist
+                mkdir($upload_dir, 0777, true); 
             }
 
             // If file already exists, rename it with a unique name
@@ -67,4 +67,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-?>
+

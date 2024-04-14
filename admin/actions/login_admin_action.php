@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Start session and store user information
                 $_SESSION['username'] = $username;                
                 echo "<script>alert('Welcome, $username!');</script>";
-                echo "<script>window.location.href='" . SITEURL . "admin/index.php';</script>";
+                echo "<script>window.location.href='" . SITEURL . "admin/admin_dashboard.php';</script>";
 
                 exit();
             } else {

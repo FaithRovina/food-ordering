@@ -1,5 +1,4 @@
 <?php
-include ('../../settings/connection.php');
 // Function to get the total number of categories
 function getTotalCategories() {
     global $con; 
@@ -26,4 +25,3 @@ function getTotalCategories() {
         return 0; 
     }
 }
-

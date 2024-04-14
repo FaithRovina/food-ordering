@@ -1,11 +1,11 @@
 <?php
-include ('../../settings/connection.php');
+
 // Function to get the total revenue
 function getTotalRevenue() {
     global $con; 
     
     // SQL query to sum the total from the orders table
-    $sql = "SELECT SUM(total) AS total_revenue FROM `orders` where status_id=3"; 
+    $sql = "SELECT SUM(total) AS total_revenue FROM `orders`"; 
 
     // Execute the query
     $result = mysqli_query($con, $sql);
@@ -21,7 +21,8 @@ function getTotalRevenue() {
         // Free the result set
         mysqli_free_result($result);
         
-    
+        // Close the database connection (optional)
+        // mysqli_close($con);
 
         return $total_revenue;
     } else {
@@ -30,4 +31,3 @@ function getTotalRevenue() {
         return 0; 
     }
 }
-

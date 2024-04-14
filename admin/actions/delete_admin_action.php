@@ -34,4 +34,4 @@ if (isset($_GET['adminid'])) {
     echo "Admin ID not provided";
 }
 
-?>
+
