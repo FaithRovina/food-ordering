@@ -1,4 +1,5 @@
 <?php 
+
 include ('partials/menu.php');
 include('../../settings/connection.php'); 
 include('../../settings/constants.php'); 
