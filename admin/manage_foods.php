@@ -52,7 +52,7 @@
                     }
                     echo "<td>                    
                     <a href='../admin/update_food.php.?fid= ". $row["fid"]. " ' class='btn-secondary'> Update Food </a>
-                    <a  href='admin/actions/delete_food_action.php.?fid= ". $row["fid"]. " 'class='btn-danger'> Delete Food </a>                    
+                    <a  href='../actions/delete_food_action.php.?fid= ". $row["fid"]. " 'class='btn-danger'> Delete Food </a>                    
                     </td>";
                     echo "</tr>";
                 }
