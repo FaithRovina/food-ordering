@@ -1,5 +1,5 @@
 <?php
-
+include ('../../settings/connection.php');
 // Function to get the total revenue
 function getTotalRevenue() {
     global $con; 

@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the statement
     if ($stmt->execute()) {
-        header("Location: ../login/login_view.php");
+        header("Location:../manage_admin.php");
         exit;
     } else {
         echo "Error: " . $stmt->error;
