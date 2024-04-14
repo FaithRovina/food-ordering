@@ -29,7 +29,7 @@ if (!$current_admin_username) {
         // Check if the current admin is admin ID 16
         if ($current_admin_id != 16) {
             // If the current admin is not ID 16, display a message or redirect
-            echo "<script>alert('You are not authorized to access this page.'); window.location.href = 'index.php';</script>";
+            echo "<script>alert('You are not authorized to access this page.'); window.location.href = 'admin_dashboard.php';</script>";
             
         } else {
             // If the current admin is ID 16, display the page content
